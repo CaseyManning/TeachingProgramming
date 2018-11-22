@@ -1,0 +1,49 @@
+{
+  "name": "App",
+  "version": "1.0.0",
+  "description": "an app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package": "electron-packager ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.9"
+  },
+  "dependencies": {
+    "electron-installer-dmg": "^2.0.0",
+    "electron-packager": "^12.2.0",
+    "electron-store": "^2.0.0",
+    "python-shell": "^1.0.6"
+  },
+  "electronBuilder": {
+    "build": {
+      "productName": "App",
+      "appId": "lication",
+      "asar": false,
+      "win": {
+        "target": "nsis"
+      },
+      "nsis": {
+        "oneClick": false,
+        "allowElevation": false
+      },
+      "linux": {
+        "target": "AppImage",
+        "category": "Development"
+      },
+      "mac": {
+        "target": "dmg"
+      },
+      "extraResources": "python_scripts"
+    },
+    "directories": {
+      "output": "electron/output",
+      "app": "electron/app",
+      "buildResources": "electron/buildResources"
+    }
+  }
+}
