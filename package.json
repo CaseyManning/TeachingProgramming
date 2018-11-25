@@ -45,5 +45,9 @@
       "app": "electron/app",
       "buildResources": "electron/buildResources"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CaseyManning/TeachingProgramming.git"
   }
 }

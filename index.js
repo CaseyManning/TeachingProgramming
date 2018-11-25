@@ -9,7 +9,7 @@ const store = new Store();
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 1000, height: 1200, frame: false})
+  win = new BrowserWindow({ width: 1000, height: 1200, frame: false, titleBarStyle: 'hidden'})
   // win.setMenu(null)
   // and load the index.html of the app.
   if(store.get("started") == 'yes') {

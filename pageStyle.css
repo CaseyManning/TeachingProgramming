@@ -22,3 +22,7 @@ button {
   display: inline-block;
   font-size: 16px;
 }
+titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
