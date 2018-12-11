@@ -38,9 +38,9 @@ app.on('ready', createWindow)
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
+  // if (process.platform !== 'darwin') {
     app.quit()
-  }
+  // }
 })
 
 app.on('activate', () => {
@@ -50,7 +50,6 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
 function runPython(text, out, nextID, check) {
   const ps = require('python-shell')
 
@@ -60,6 +59,15 @@ function runPython(text, out, nextID, check) {
     pythonOptions: ['-u'] // get print results in real-time
   };
 
+  var exec = require('child_process').exec;
+var child = exec('python -u test.py',
+  function(error, stdout, stderr) {
+    console.log('stdout: ', stdout);
+    console.log('stderr: ', stderr);
+    if (error !== null) {
+      console.log('exec error: ', error);
+    }
+});
 
   ps.PythonShell.runString(text, options, function (err, results) {
     if (err) throw err;

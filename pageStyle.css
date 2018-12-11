@@ -26,3 +26,12 @@ titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
+head {
+  -webkit-app-region: drag
+}
+
+close {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
