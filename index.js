@@ -70,7 +70,11 @@ var child = exec('python -u test.py',
 });
 
   ps.PythonShell.runString(text, options, function (err, results) {
-    if (err) throw err;
+    if (err) {
+      document.getElementById(out).style.color = 'red';
+      document.getElementById(out).innerHTML = (' <br> ' + err);
+      throw err;
+    }
     console.log('finished');
     console.log(results);
 
@@ -79,7 +83,9 @@ var child = exec('python -u test.py',
     if(!results) {
       return;
     }
+    document.getElementById(out).style.color = 'black';
     for(i = 0; i < results.length; i++) {
+
       document.getElementById(out).innerHTML += (results[i] + ' <br>');
     }
     var passed = check(text, document.getElementById(out).innerHTML);

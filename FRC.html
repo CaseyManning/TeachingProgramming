@@ -4,8 +4,9 @@
 <script type="text/javascript" src="testers.js"></script>
 <html>
   <head>
+    <link rel="stylesheet" href="pageStyle.css">
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Introduction to Commands</title>
+    <title>Learning Programming</title>
     <style type="text/css">
       body{
         margin:40px auto;
@@ -18,9 +19,41 @@
         font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
       }
       h1,h2,h3{line-height:1.2}
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+      }
+      /* Tooltip text */
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 320;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+      }
+      /* Show the tooltip text when you mouse over the tooltip container */
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
     </style>
   </head>
-  <body>
-
+  <body bgcolor="#fbfbfb" -webkit-app-region="drag">
+    <font face='avenir'>
+      <center>
+        <h1>Introduction to Commands</h1>
+      </center>
+      <p>
+        In this section, we will learn about the basic component of a <div class="tooltip">Command Based Robot <span class="tooltiptext">There are many types of code architecture, such as Command Based Robots, Iterative Robots, and others.
+          Command Based Robots are the archtecture we use, which involves commands which act upon subsystems.</span> </div>, the Command. We create commands
+      </p>
+    </font>
   </body>
+<div class="close" onclick="window.location.href='index.html'" style="border-radius:5px;color:#eeeeee;background-color:#111111;display:inline-block;padding:5px 10px;position:fixed;top:35px;left:15px;">close</div>
 </html>
