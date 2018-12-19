@@ -55,19 +55,8 @@ function runPython(text, out, nextID, check) {
 
   let options = {
     mode: 'text',
-    pythonPath: '/usr/bin/python2.7',
     pythonOptions: ['-u'] // get print results in real-time
   };
-
-  var exec = require('child_process').exec;
-var child = exec('python -u test.py',
-  function(error, stdout, stderr) {
-    console.log('stdout: ', stdout);
-    console.log('stderr: ', stderr);
-    if (error !== null) {
-      console.log('exec error: ', error);
-    }
-});
 
   ps.PythonShell.runString(text, options, function (err, results) {
     if (err) {
