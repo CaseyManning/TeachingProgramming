@@ -4,13 +4,17 @@ var currentCode = ''
 
 var playerX = 50;
 var playerY = 50;
+var startX = 50;
+var startY = 50;
 
-var goalX = 500;
-var goalY = 500;
+var goalX = 0;
+var goalY = 0;
 
 var goalTheta = 0.1;
 
 var lastRender = 0;
+
+var level = 0;
 
 let options = {
   mode: 'text',
@@ -22,7 +26,7 @@ function updateCode(text) {
   playerX = 50;
   playerY = 50;
   console.log('Updating Code')
-  var code = String("myX = " + playerX + "; myY = " + playerY + "; goalX = " + goalX + "; goalY = " + goalY + "\n" + currentCode + "\nprint(min(update()[0],10), min(update()[1],10))");
+  var code = String("myX = " + playerX + "; myY = " + playerY + "; goalX = " + goalX + "; goalY = " + goalY + "\n" + currentCode + "\nprint(min(update()[0],20), min(update()[1],20))");
   ps.PythonShell.runString(code, options, function (err, results) {
     if(err) {
       alert(err);
@@ -35,12 +39,12 @@ function update(time) {
     playerX = 50;
     playerY = 50;
   }
-  var code = String("myX = " + playerX + "; myY = " + playerY + "; goalX = " + goalX + "; goalY = " + goalY + "\n" + currentCode + "\nprint(min(update()[0],10), min(update()[1],10))")
+  var code = String("myX = " + playerX + "; myY = " + playerY + "; goalX = " + goalX + "; goalY = " + goalY + "\n" + currentCode + "\nprint(min(update()[0],20), min(update()[1],20))")
   ps.PythonShell.runString(code, options, function (err, results) {
     if(err) {
       console.log(err);
     }
-    orbitGoal(time);
+    // orbitGoal(time);
 
     results = results + ''
     var res = results.split(" ")
@@ -78,6 +82,34 @@ function orbitGoal(time) {
   // console.log(goalTheta);
 }
 
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+function init() {
+  readTextFile("levels.json", function(text){
+      var data = JSON.parse(text);
+      console.log(data);
+      console.log(data[level]);
+
+      startX = data[level]['startX'];
+      startY = data[level]['startY'];
+      playerX = startX;
+      playerY = startY;
+
+      goalX = data[level]['goalX'];
+      goalY = data[level]['goalY']
+  });
+}
+
 function loop(timestamp) {
   var time = timestamp - lastRender
 
@@ -87,6 +119,7 @@ function loop(timestamp) {
   window.requestAnimationFrame(loop)
 }
 window.onload = function() {
+  init()
   currentCode = document.getElementById("code").innerHTML;
   window.requestAnimationFrame(loop)
 }
