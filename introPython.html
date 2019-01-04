@@ -6,47 +6,8 @@
     <link rel="stylesheet" href="pageStyle.css">
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Programming</title>
-    <style type="text/css">
-      body{
-        margin:40px auto;
-        max-width:650px;
-        line-height:1.6;font-size:18px;
-        color:#444;
-        padding:010px}
-      textarea {
-        background-color:#fbfbfb;
-        font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-        width: 800;
-      }
-      h1,h2,h3{line-height:1.2}
-      .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-      }
-
-      /* Tooltip text */
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-
-        /* Position the tooltip text - see examples below! */
-        position: absolute;
-        z-index: 1;
-      }
-
-      /* Show the tooltip text when you mouse over the tooltip container */
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-      }
-    </style>
   </head>
-  <body bgcolor="#fbfbfb" -webkit-app-region="drag">
+  <body>
     <font face='avenir'>
       <center>
         <h1>Python Introduction</h1>
@@ -62,7 +23,7 @@
         To use it, you put something in it, like <code>print("Hello World")</code>.
         Try printing something in the code area below:
       </p>
-      <textarea rows="4" cols="50" id="code1"></textarea>
+      <textarea rows="4" cols="80" id="code1"></textarea>
       <br>
       <button type="button" onclick="runPython(document.getElementById('code1').value, 'output1', 'part2', introPy1)">Run Code</button>
       <h5>Output:</h6>
@@ -81,7 +42,7 @@
           variable when you make it above the print statement.
         </p>
         <p>Try printing a variable you make below: </p>
-        <textarea rows="4" cols="50" id="code2"></textarea>
+        <textarea rows="4" cols="80" id="code2"></textarea>
         <br>
         <button type="button" onclick="runPython(document.getElementById('code2').value, 'output2', 'part3', introPy2)">Run Code</button>
         <h5>Output:</h6>
@@ -105,7 +66,7 @@
         <p>
           Try writing a program that does some math, then prints out the result.
         </p>
-        <textarea rows="4" cols="50" id="code3"></textarea>
+        <textarea rows="4" cols="80" id="code3"></textarea>
         <br>
         <button type="button" onclick="runPython(document.getElementById('code3').value, 'output3', 'part4', introPy3)">Run Code</button>
         <h5>Output:</h6>

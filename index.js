@@ -15,7 +15,7 @@ function createWindow () {
   if(store.get("started") == 'yes') {
     win.loadFile('index.html');
   } else {
-    win.loadFile('intro.html');
+    win.loadFile('canvasGame.html');
   }
 
   // Open the DevTools.

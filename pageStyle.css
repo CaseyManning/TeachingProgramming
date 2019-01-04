@@ -1,8 +1,10 @@
+
 body{
   margin:40px auto;
   max-width:650px;
   line-height:1.6;font-size:18px;
   color:#444;
+  bgcolor:#fbfbfb
   padding:010px}
 textarea {
   background-color:#fbfbfb;
@@ -13,14 +15,19 @@ a {
 }
 h1,h2,h3{line-height:1.2}
 button {
-  background-color: #4CAF50; /* Green */
+  background-color: #222222; /* Green */
   border: none;
-  color: white;
+  color: #eeeeee;
   padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius:5px;
+}
+code {
+  color:#111111;
+  font-weight: 600;
 }
 titlebar {
   -webkit-user-select: none;
@@ -54,4 +61,28 @@ tooltip,tooltiptext {
 /* Show the tooltip text when you mouse over the tooltip container */
 tooltip:hover,tooltiptext {
   visibility: visible;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 200px;
+  background-color: red;
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.verticalLine {
+  border-left: thick solid #FFFFFF;
 }

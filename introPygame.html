@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="testers.js"></script>
+<html>
+  <head>
+    <link rel="stylesheet" href="pageStyle.css">
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your First Python Game</title>
+  </head>
+  <body>
+    <font face='avenir'>
+      <center>
+        <h1>Your First Python Game</h1>
+      </center>
+      <p>
+        Python is a programming language that we will be using for a lot of projects.
+        This page will get you started using python, and you will learn about the basics
+        of the language
+      </p>
+      <p>
+        To output something in python, you use something called <code>print</code>.
+        This function just takes whatever you give it, and writes it on the screen.
+        To use it, you put something in it, like <code>print("Hello World")</code>.
+        Try printing something in the code area below:
+      </p>
+      <textarea rows="4" cols="80" id="code1"></textarea>
+      <br>
+      <button type="button" onclick="runPython(document.getElementById('code1').value, 'output1', 'part2', introPy1)">Run Code</button>
+      <h5>Output:</h6>
+      <p id="output1"></p>
+      <div id="part2" hidden>
+
+      </div>
+    </font>
+  </body>
+<div class="close" onclick="window.location.href='index.html'" style="border-radius:5px;color:#eeeeee;background-color:#222222;display:inline-block;padding:5px 10px;position:fixed;top:35px;right:35px;">close</div>
+</html>

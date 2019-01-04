@@ -1,0 +1,48 @@
+<html>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="canvas.js"></script>
+<script>
+</script>
+  <head>
+    <link rel="stylesheet" href="pageStyle.css">
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Map</title>
+      <style>
+         #mycanvas{position:fixed;top:0px;left:0px;}
+      </style>
+  </head>
+  <canvas id = "mycanvas" width = "300" height = "300"></canvas>
+  <div class="card" style="position:fixed;bottom:0px;left:0px;background-color:#333333;width:1520;height:280;">
+    <font face='avenir'>
+      <h3 style="color:#DDDDDD; position:fixed;left:150px">Code your Movement</h3>
+      <textarea rows="8" cols="60" id="code" style="position:fixed;bottom:80px;left:35px;">
+
+def update():
+  vx = -(myX - goalX)
+  vy = -(myY - goalY)
+  return vx, vy
+
+    </textarea>
+    <center><div class="verticalLine"></div></center>
+    <h3 style="color:#DDDDDD; position:fixed;right:150px">Useful Variables:</h3>
+    <textarea rows="11" cols="60" style="position:fixed;bottom:40px;right:35px;background:#444444;color:#EEEEEE" disabled="disabled">
+myX: the rocket's X position (Integer)
+myY: the rocket's Y position (Integer)
+goalX: X position of where you want to go (Integer)
+goalY: Y position of where you want to go (Integer)
+
+Are we collided with something? Variables:
+- topCollision (Boolean)
+- bottomCollision (Boolean)
+- leftCollision (Boolean)
+- rightCollision (Boolean)
+</textarea>
+    <div type="button" onclick="playerX = 50; playerY = 50;" style="border-radius:5px;color:#eeeeee;background-color:#222222;display:inline-block;padding:5px 10px;position:fixed;bottom:35px;left:300px;">Reset</div>
+    <div type="button" onclick="updateCode(document.getElementById('code').value)" style="border-radius:5px;color:#eeeeee;background-color:#222222;display:inline-block;padding:5px 10px;position:fixed;bottom:35px;left:375px;">Run Code</div>
+    </font>
+  </div>
+<div class="close" onclick="window.location.href='index.html'" style="border-radius:5px;color:#eeeeee;background-color:#222222;display:inline-block;padding:5px 10px;position:fixed;top:35px;right:35px;">close</div>
+
+<div class="card"></div>
+
+</html style="position:fixed;bottom:40px;right:35px;background:#444444;color:#EEEEEE"></div>
