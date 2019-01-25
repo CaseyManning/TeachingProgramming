@@ -2,6 +2,9 @@
 <script type="text/javascript" src="index.js"></script>
 <script type="text/javascript" src="canvas.js"></script>
 <script>
+  function hideOverlay() {
+    document.getElementById("overlay").style.display="none";
+  }
 </script>
   <head>
     <link rel="stylesheet" href="pageStyle.css">
@@ -43,6 +46,15 @@ Are we collided with something? Variables:
   </div>
 <div class="close" onclick="window.location.href='index.html'" style="border-radius:5px;color:#eeeeee;background-color:#222222;display:inline-block;padding:5px 10px;position:fixed;top:35px;right:35px;">close</div>
 
-<div class="card"></div>
+<div class="card-overlay-outer" id="overlay"><div class="card-overlay">
+  <font face='avenir'>
+  <h2 style="color:#DDDDDD">Level 1: Intro</h2>
+
+  <p style="color:#DDDDDD">Welcome! Your goal is to get your character to the goal. To do this, write code in the bottom left area of the screen, then run it with the run button</p>
+
+  <div type="button" onclick="hideOverlay(); codeRunning = true;" style="border-radius:5px;color:#eeeeee;background-color:#222222;">ok</div>
+
+  </font>
+</div></div>
 
 </html style="position:fixed;bottom:40px;right:35px;background:#444444;color:#EEEEEE"></div>

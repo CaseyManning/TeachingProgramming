@@ -1,18 +1,21 @@
 [
   {
-    "startX": 50,
+    "startX": 150,
     "startY": 50,
     "goalX": 300,
-    "goalY": 300,
+    "goalY": 400,
     "goalMovement": "fixed",
     "goalSprite": "goal.png",
     "obstacles": [
       {"sprite": "asteroid.png", "x": 20, "y": 200, "vX": 6, "vY": 0},
       {"sprite": "asteroid.png", "x": 20, "y": 100, "vX": 4, "vY": 0}
+    ],
+    "maze": [
+
     ]
   },
   {
-    "startX": 50,
+    "startX": 150,
     "startY": 50,
     "goalX": 300,
     "goalY": 300,
@@ -22,6 +25,9 @@
       {"sprite": "asteroid.png", "x": 20, "y": 200, "vX": 6, "vY": 0},
       {"sprite": "asteroid.png", "x": 20, "y": 100, "vX": 4, "vY": 0},
       {"sprite": "asteroid.png", "x": 20, "y": 150, "vX": 5, "vY": 0}
+    ],
+    "maze": [
+
     ]
   },
   {
@@ -36,6 +42,9 @@
       {"sprite": "asteroid.png", "x": 200, "y": 400, "vX": 4, "vY": 0},
       {"sprite": "asteroid.png", "x": 20, "y": 150, "vX": 0, "vY": 3},
       {"sprite": "asteroid.png", "x": 20, "y": 350, "vX": 6, "vY": 0}
+    ],
+    "maze": [
+
     ]
   }
 ]

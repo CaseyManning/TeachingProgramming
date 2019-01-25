@@ -10,16 +10,28 @@ var startY = 50;
 var goalX = 0;
 var goalY = 0;
 
+var topCollision = false;
+var bottomCollision = false;
+var leftCollision = false;
+var rightCollision = false;
+
+var playerWidth = 50
+var playerHeight = 50
+
 var goalTheta = 0.1;
 
 var lastRender = 0;
 
 var level = 0;
 
+var codeRunning = false;
+
 let options = {
   mode: 'text',
   pythonOptions: ['-u'] // get print results in real-time
 };
+
+var maze = [];
 
 function updateCode(text) {
   currentCode = text;
@@ -52,12 +64,30 @@ function update(time) {
     var vx = res[0]
     var vy = res[1]
 
-    playerX += (time/100) * vx;
-    playerY += (time/100) * vy;
-    // console.log("velocity ");
-    // console.log(vx, vy);
-    // console.log("position");
-    // console.log(playerX, playerY);
+    var validMove = true;
+
+    var newX = playerX + (time/100) * vx;
+    var newY = playerY + (time/100) * vy;
+
+    for(var i = 0; i < maze.length; i++) {
+      if(collidePlayer(newX, newY, maze[i]["x1"], maze[i]["y1"], (maze[i]["x2"] - maze[i]["x1"]), (maze[i]["y2"] - maze[i]["y1"]))) {
+        console.log('collision');
+        validMove = false
+      }
+    }
+    if(validMove) {
+      playerX = newX;
+      playerY = newY;
+    }
+    console.log(collidePlayer(goalX, goalY, 50, 50))
+    if(collidePlayer(playerX, playerY, goalX, goalY, 50, 50)) {
+      level += 1;
+      console.log('Next Level')
+      document.getElementById("overlay").style.display="block";
+      codeRunning = false;
+      init()
+    }
+
   });
 }
 
@@ -72,6 +102,11 @@ function draw() {
   ctx.fillRect(playerX, playerY, 50, 50);
   ctx.fillStyle = "#FFFF00";
   ctx.fillRect(goalX, goalY, 50, 50);
+
+  ctx.fillStyle = "#000000";
+  for(var i = 0; i <  maze.length; i++) {
+    ctx.fillRect(maze[i]["x1"], maze[i]["y1"], (maze[i]["x2"] - maze[i]["x1"]) + 3, (maze[i]["y2"] - maze[i]["y1"]) + 3);
+  }
 }
 
 function orbitGoal(time) {
@@ -94,7 +129,12 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
+function collidePlayer(px, py, x,y,w,h) {
+  return (px + playerWidth > x && px < x + w && py + playerHeight > y && py < y + h)
+}
+
 function init() {
+  console.log(level)
   readTextFile("levels.json", function(text){
       var data = JSON.parse(text);
       console.log(data);
@@ -107,19 +147,25 @@ function init() {
 
       goalX = data[level]['goalX'];
       goalY = data[level]['goalY']
+
+      maze = []
+      for(var i = 0; i < data[level]["maze"].length; i++) {
+        maze.push(data[level]["maze"][i]);
+      }
   });
 }
 
 function loop(timestamp) {
   var time = timestamp - lastRender
-
-  update(time)
-  draw()
-  lastRender = timestamp
-  window.requestAnimationFrame(loop)
+  if(codeRunning) {
+    update(time);
+  }
+  draw();
+  lastRender = timestamp;
+  window.requestAnimationFrame(loop);
 }
 window.onload = function() {
-  init()
+  init();
   currentCode = document.getElementById("code").innerHTML;
-  window.requestAnimationFrame(loop)
+  window.requestAnimationFrame(loop);
 }

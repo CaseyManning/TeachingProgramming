@@ -86,3 +86,20 @@ tooltip:hover,tooltiptext {
 .verticalLine {
   border-left: thick solid #FFFFFF;
 }
+
+.card-overlay-outer {
+  text-align: center;
+  position: fixed;
+  left: 0;
+  right:0
+}
+
+.card-overlay {
+  /* position: fixed; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  display: inline-block;
+  width:50%;
+  background-color:#333333;
+
+}
